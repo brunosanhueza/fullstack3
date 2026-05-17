@@ -1,0 +1,127 @@
+:host {
+  display: block !important;
+  width: 100vw;
+  height: 100vh;
+  background:
+    linear-gradient(135deg, rgba(15,23, 42, 0.9) 0%, rgba(30, 41, 59, 0.8) 100%),
+    url('https://www.c3carecarcenter.com/wp-content/uploads/2025/05/Descubre-la-mejor-concesionaria-de-autos-usados-para-ti-1038x576.webp') no-repeat center center;
+  background-size: cover;
+}
+
+.dashboard-wrapper {
+  background: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.nav-logo h2 span {
+  color: #3b82f6;
+}
+
+.btn-logout {
+  background: transparent;
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-logout:hover {
+  background: #ef4444;
+  color: #ffffff;
+  border-color: #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
+}
+
+.dashboard-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.welcome-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 550px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.badge {
+  background: rgba(59, 130, 246, 0.1);
+  color: #38bdf8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.welcome-card h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 16px 0 12px 0;
+}
+
+.welcome-card p {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.status-indicator .dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.status-indicator p {
+  font-size: 0.85rem;
+  color: #10b981;
+  margin: 0;
+  font-weight: 500;
+}
+
+.gatowaton {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin: 20px auto;
+}
