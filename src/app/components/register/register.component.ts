@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { minLength } from '@angular/forms/signals';
 import { Router, RouterLink } from '@angular/router';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { UsuarioService } from '../../services/usuario-service';
+import { Usuario } from '../../models/usuario/usuario';
 
 const DOMINIOS_PERMITIDOS = ['gmail.com','hotmail.com','outlook.com'];
 
@@ -47,7 +48,13 @@ export function validadorDominioCorreo(): ValidatorFn {
 export class Register implements OnInit {
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(
+    private fb: FormBuilder, 
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) {}
+
+
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -58,10 +65,21 @@ export class Register implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log('Usuario registrado:', this.registerForm.value);
-      this.router.navigate(['/dashboard']);
+  onSubmit(): void{
+    console.log('formulario valido?',this.registerForm.valid);
+    console.log('valores: ', this.registerForm.value);
+    if (this.registerForm.valid){
+      const nuevoUsuario: Usuario = this.registerForm.value;
+
+      this.usuarioService.crearUsuario(nuevoUsuario).subscribe({
+        next: (res) => {
+          console.log('Usuario registrado: ', res);
+          this.router.navigate(['/dashboard']);
+        },
+        error: (err) => {
+          console.error('Error al crear usuario: ', err);
+        }
+      })
     }
   }
-}
+  }
