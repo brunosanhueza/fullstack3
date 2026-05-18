@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { minLength } from '@angular/forms/signals';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -17,9 +18,10 @@ export class Register implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]], //fsajfakja
-      email: ['', [Validators.required, Validators.email]], 
-      password: ['', [Validators.required, Validators.minLength(6)]], 
+      nameUser: ['', [Validators.required, Validators.minLength(3)]], //fsajfakja
+      emailUser: ['', [Validators.required, Validators.email]], 
+      passwordUser: ['', [Validators.required, Validators.minLength(6)]],
+      phoneUser: ['', [Validators.required, Validators.maxLength(9),Validators.minLength(9)]]
     });
   }
 
