@@ -109,6 +109,29 @@
     margin-top: 10px;
 }
 
+.btn-guest {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f8fafc;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 6px;
+}
+
+.btn-guest:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+}
+
+.btn-guest:active {
+    transform: translateY(0);
+}
+
 .btn-submit:hover:not(:disabled) {
     background: #2563eb;
     transform: translateY(-1px);

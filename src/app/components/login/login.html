@@ -7,10 +7,17 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
       <div class="form-group">
-        <label for="email">Correo Electrónico</label>
-        <input type="email" id="email" formControlName="email" placeholder="ejemplo@carhub.com" />
-        @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
-          <small class="error-msg">Ingresa un correo electrónico válido</small>
+        <label for="emailUser">Correo Electrónico</label>
+        <input type="email" id="emailUser" formControlName="emailUser" placeholder="ejemplo@carhub.com" />
+
+        @if (loginForm.get('emailUser')?.touched && loginForm.get('emailUser')?.invalid) {
+          @if (loginForm.get('emailUser')?.errors?.['emailUser'] || loginForm.get('emailUser')?.errors?.['required']) {
+            <small class="error-msg">Ingresa un correo electrónico válido</small>
+          }
+
+          @if (loginForm.get('emailUser')?.errors?.['dominioInvalido']) {
+            <small class="error-msg">Por favor ingrese un dominio valido (Ej: Gmail, Hotmail, Outlook, etc).</small>
+          }
         }
       </div>
 
@@ -23,12 +30,16 @@
       </div>
 
       <button type="submit" [disabled]="loginForm.invalid" class="btn-submit">
-        Ingresar al Sistema
+        Ingresar al Sistema.
       </button>
     </form>
 
+    <button type="button" (click)="ingresoInvitado()" class="btn-guest">
+      Continuar como Invitado.
+    </button>
+
     <div class="auth-footer">
-      <p>¿No tienes una cuenta aún? <a routerLink="/register">Regístrate aquí y unete</a></p>
+      <p>¿No tienes una cuenta aún? <a routerLink="/register">Regístrate aquí y únete</a></p>
     </div>
-  </div>
-</div>
+    
+  </div> </div>
