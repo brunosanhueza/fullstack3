@@ -1,30 +1,101 @@
-<nav class="navbar">
-    <div class="nav-logo">
-        <h2>Car<span>Hub</span></h2>    
+<div class="dashboard-wrapper">
+    <h1>HOLA MUNDO</h1>
+  
+  <div style="
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 90px !important;
+    background-color: #111827 !important;
+    background: rgba(17, 24, 39, 0.9) !important; 
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 15px 30px !important;
+    margin-bottom: 40px !important;
+    box-sizing: border-box !important;
+  ">
+
+    <div class="brand-container">
+      <h2>Car<span style="color: #3b82f6;">Hub</span></h2>
+      <p class="subtitle">Bienvenidos a CarHub, donde el auto de tus sueños puede estar a un click de distancia</p>
     </div>
 
-    <div class="nav-actions">
-        <button class="btn-logout" (click)="logout()">
-            Cerrar Sesion.
-        </button>
+    <div class="user-actions">
+      <button class="btn-logout">Cerrar Sesión</button>
     </div>
-    </nav>
 
-    <main class="dashboard-contenido">
-        <div class="carta-bienvenida">
-            <div class="carta">
-                <img src="img/gato.gif" alt="gatoguaton" class="gatowaton">
-                <div>
-                    Bienvenido a CarHub, Aqui deberia haber mas contenido, pero ten un gato mientras tanto.
-                </div>
-            </div> 
-        </div> 
-    </main>
+  </div>
 
+  <div class="store-layout">
+    
+    <aside class="filters-sidebar">
+      <h3>Filtros de Búsqueda</h3>
+      
+      <div class="filter-group">
+        <h4>Marca</h4>
+        <div class="checkbox-list">
+          <label><input type="checkbox" checked> Toyota</label>
+          <label><input type="checkbox" checked> Subaru</label>
+          <label><input type="checkbox" checked> Nissan</label>
+        </div>
+      </div>
 
+      <div class="filter-group">
+        <h4>Año</h4>
+        <div class="price-inputs">
+          <input type="number" placeholder="Min" />
+          <span class="separator">-</span>
+          <input type="number" placeholder="Max" />
+        </div>
+      </div>
 
+      <div class="filter-group">
+        <h4>Precio</h4>
+        <div class="price-inputs">
+          <input type="text" placeholder="$2.00" />
+          <span class="separator">-</span>
+          <input type="text" placeholder="$100.00" />
+        </div>
+      </div>
+    </aside>
 
+    <section class="catalog-section">
+      <h3 class="section-title">Catálogo Destacado</h3>
+      
+      <div class="products-grid">
+        
+        <div class="product-card">
+          <div class="product-img-placeholder">🏎️</div>
+          <div class="product-info">
+            <h4>Toyota</h4>
+            <p class="price">$2.500.000 CLP</p>
+            <button class="btn-details">Ver Detalles</button>
+          </div>
+        </div>
 
+        <div class="product-card">
+          <div class="product-img-placeholder">🏎️</div>
+          <div class="product-info">
+            <h4>Subaru</h4>
+            <p class="price">$3.000.000 CLP</p>
+            <button class="btn-details">Ver Detalles</button>
+          </div>
+        </div>
 
+        <div class="product-card">
+          <div class="product-img-placeholder">🚙</div>
+          <div class="product-info">
+            <h4>Nissan</h4>
+            <p class="price">$2.750.000 CLP</p>
+            <button class="btn-details">Ver Detalles</button>
+          </div>
+        </div>
 
-    <app-footer-component></app-footer-component>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<app-footer-component></app-footer-component>
