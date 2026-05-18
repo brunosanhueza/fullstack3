@@ -1,6 +1,7 @@
 package com.loquendodev.carhub.models.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 public class Vehiculo {
-
+    @Id
     private Integer id_vehiculo;
     private String id_chasis_vehiculo;
     private String patente_vehiculo;
