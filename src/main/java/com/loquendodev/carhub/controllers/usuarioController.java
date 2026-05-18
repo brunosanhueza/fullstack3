@@ -25,6 +25,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RestController
 @RequestMapping("/api/v1")
 @CrossOrigin(origins = "http://localhost:4200")  
+
+
 public class usuarioController {
 
     private final UsuarioRepository usuarioRepository;
