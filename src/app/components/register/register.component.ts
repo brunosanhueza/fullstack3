@@ -54,11 +54,9 @@ export class Register implements OnInit {
     private usuarioService: UsuarioService
   ) {}
 
-
-
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      nameUser: ['', [Validators.required, Validators.minLength(3)]], //fsajfakja
+      nameUser: ['', [Validators.required, Validators.minLength(3)]], //el 'validators.required' se encarga de que se respete todo, obligando al usuario a escribir su nombre para poder ingresar o crear su cuenta
       emailUser: ['', [Validators.required, Validators.email, validadorDominioCorreo()]], 
       passwordUser: ['', [Validators.required, Validators.minLength(6)]],
       phoneUser: ['', [Validators.required, Validators.maxLength(9),Validators.minLength(9)]]
@@ -73,7 +71,7 @@ export class Register implements OnInit {
 
       this.usuarioService.crearUsuario(nuevoUsuario).subscribe({
         next: (res) => {
-          console.log('Usuario registrado: ', res);
+          console.log('Usuario registrado: ', res); //aqui la consola arroja que un usuario ya se registro.
           this.router.navigate(['/dashboard']);
         },
         error: (err) => {
