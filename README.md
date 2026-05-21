@@ -1,59 +1,53 @@
-# FrontendCarhub
+<div align="center">
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.10.
+<br/>
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
+```
+ ██████╗ ██████╗  ██████╗      ██╗███████╗ ██████╗████████╗
+ ██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝██╔════╝╚══██╔══╝
+ ██████╔╝██████╔╝██║   ██║     ██║█████╗  ██║        ██║   
+ ██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝  ██║        ██║   
+ ██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗╚██████╗   ██║   
+ ╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝ ╚═════╝   ╚═╝   
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+<br/>
 
-## Code scaffolding
+## 🛠️ Lenguajes y Tecnologías Utilizadas
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+<br/>
 
-```bash
-ng generate component component-name
-```
+![Angular](https://img.shields.io/badge/Angular_21-A855F7?style=for-the-badge&logo=angular&logoColor=white)
+&nbsp;&nbsp;&nbsp;
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-22C55E?style=for-the-badge&logo=springboot&logoColor=white)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+<br/>
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+<table>
+  <tr>
+    <td align="center" width="300">
+      <img src="https://angular.io/assets/images/logos/angular/angular.svg" width="60" height="60" alt="Angular"/>
+      <br/><br/>
+      <strong style="color:#A855F7">Angular 21</strong>
+      <br/>
+      <sub>Frontend Framework</sub>
+    </td>
+    <td align="center" width="300">
+      <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" width="60" height="60" alt="Spring Boot"/>
+      <br/><br/>
+      <strong style="color:#22C55E">Java Spring Boot</strong>
+      <br/>
+      <sub>Backend Framework</sub>
+    </td>
+  </tr>
+</table>
 
-To build the project run:
+<br/>
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+<sub>Made with ❤️</sub>
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+</div>
