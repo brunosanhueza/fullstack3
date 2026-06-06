@@ -1,0 +1,108 @@
+<div class="vehiculo-container">
+
+  <div class="form-section">
+    <h2>Registrar Vehículo</h2>
+
+    @if (msgOK) {
+      <p class="msg-exito">{{ msgOK }}</p>
+    }
+    @if (msgERR) {
+      <p class="msg-error">{{ msgERR }}</p>
+    }
+
+    <form [formGroup]="VehiculoForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label>Marca</label>
+        <input type="text" formControlName="marcaVehiculo" placeholder="Toyota" />
+        @if (VehiculoForm.get('marcaVehiculo')?.touched && VehiculoForm.get('marcaVehiculo')?.invalid) {
+          <small class="error-msg">La marca es obligatoria</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Modelo</label>
+        <input type="text" formControlName="modeloVehiculo" placeholder="Corolla" />
+        @if (VehiculoForm.get('modeloVehiculo')?.touched && VehiculoForm.get('modeloVehiculo')?.invalid) {
+          <small class="error-msg">El modelo es obligatorio</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Año</label>
+        <input type="text" formControlName="anioVehiculo" placeholder="2024" />
+        @if (VehiculoForm.get('anioVehiculo')?.touched && VehiculoForm.get('anioVehiculo')?.invalid) {
+          <small class="error-msg">El año es obligatorio</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Tipo de Bencina</label>
+        <select formControlName="tipoBencinaVehiculo">
+          <option value="">Selecciona...</option>
+          <option value="93">93</option>
+          <option value="95">95</option>
+          <option value="97">97</option>
+          <option value="Diesel">Diesel</option>
+          <option value="Electrico">Eléctrico</option>
+          <option value="Hibrido">Híbrido</option>
+        </select>
+        @if (VehiculoForm.get('tipoBencinaVehiculo')?.touched && VehiculoForm.get('tipoBencinaVehiculo')?.invalid) {
+          <small class="error-msg">El tipo de bencina es obligatorio</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Transmisión</label>
+        <select formControlName="tipoTransmisionVehiculo">
+          <option value="">Selecciona...</option>
+          <option value="Manual">Manual</option>
+          <option value="Automatico">Automático</option>
+          <option value="CVT">CVT</option>
+        </select>
+        @if (VehiculoForm.get('tipoTransmisionVehiculo')?.touched && VehiculoForm.get('tipoTransmisionVehiculo')?.invalid) {
+          <small class="error-msg">El tipo de transmisión es obligatorio</small>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Propulsión</label>
+        <select formControlName="tipoPropulsionVehiculo">
+          <option value="">Selecciona...</option>
+          <option value="FWD">FWD (Delantera)</option>
+          <option value="RWD">RWD (Trasera)</option>
+          <option value="AWD">AWD (Total)</option>
+          <option value="4WD">4WD (4x4)</option>
+        </select>
+        @if (VehiculoForm.get('tipoPropulsionVehiculo')?.touched && VehiculoForm.get('tipoPropulsionVehiculo')?.invalid) {
+          <small class="error-msg">El tipo de propulsión es obligatorio</small>
+        }
+      </div>
+
+      <button type="submit" [disabled]="VehiculoForm.invalid">
+        Registrar Vehículo
+      </button>
+
+    </form>
+  </div>
+
+  <div class="lista-section">
+    <h2>Vehículos registrados</h2>
+
+    @if (vehiculos.length === 0) {
+      <p>No hay vehículos registrados aún.</p>
+    }
+
+    @for (vehiculo of vehiculos; track vehiculo.id) {
+      <div class="vehiculo-card">
+        <p><strong>Marca:</strong> {{ vehiculo.marcaVehiculo }}</p>
+        <p><strong>Modelo:</strong> {{ vehiculo.modeloVehiculo }}</p>
+        <p><strong>Año:</strong> {{ vehiculo.anioVehiculo }}</p>
+        <p><strong>Bencina:</strong> {{ vehiculo.tipoBencinaVehiculo }}</p>
+        <p><strong>Transmisión:</strong> {{ vehiculo.tipoTransmisionVehiculo }}</p>
+        <p><strong>Propulsión:</strong> {{ vehiculo.tipoPropulsionVehiculo }}</p>
+      </div>
+    }
+  </div>
+
+</div>

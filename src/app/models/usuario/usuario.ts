@@ -5,3 +5,5 @@ export interface Usuario{
   passwordUser: string;
   phoneUser: string;
 }
+
+//estructura de modelo, en realidad es solo una interfaz (pero es así como se definen los modelos aqui xdd )

@@ -1,80 +1,84 @@
-:host {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
+/* --- CONTENEDOR DEL FOOTER --- */
 .main-footer {
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
-    color: #94a3b8;
-    padding: 40px 20px 20px 20px;
-    font-family: system-ui, -apple-system, sans-serif;
-    position: relative;
-    z-index: 10;
+  background-color: #111827; 
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  font-family: system-ui, -apple-system, sans-serif;
+  padding: 50px 0 30px 0;
+  width: 100%;
 }
 
+/* --- GRILLA DE 3 COLUMNAS --- */
 .footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 60px;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  padding-bottom: 30px;
+  padding: 0 40px;
+  align-items: start;
 }
 
-.footer-section h3 {
-  font-size: 1.6rem;
+/* --- TEXTOS Y TÍTULOS --- */
+.footer-section-brand h3 {
   color: #ffffff;
-  margin-bottom: 15px;
+  font-size: 1.8rem;
   font-weight: 700;
+  margin: 0 0 15px 0;
 }
 
-.footer-section h3 span {
+.footer-section-brand h3 span {
   color: #3b82f6;
 }
 
+.footer-section-brand p, 
+.footer-section-about p {
+  margin: 0;
+  line-height: 1.6;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.footer-section-about h4,
 .footer-section h4 {
+  color: #ffffff;
   font-size: 1.1rem;
-  color: #f1f5f9;
-  margin-bottom: 15px;
+  margin: 0 0 20px 0;
   font-weight: 600;
 }
 
-.footer-section p {
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-
+/* --- ENLACES --- */
 .footer-section ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.footer-section ul li {
-  margin-bottom: 10px;
-}
-
-.footer-section ul li a {
+.footer-section a {
   color: #94a3b8;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
-.footer-section ul li a:hover {
-  color: #3b82f6;
+.footer-section a:hover {
+  color: #3b82f6; 
 }
 
+/* --- COPYRIGHT --- */
 .footer-bottom {
   max-width: 1200px;
-  margin: 0 auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 20px;
+  margin: 50px auto 0;
+  padding: 25px 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1); 
   text-align: center;
-  font-size: 0.85rem;
+}
+
+.footer-bottom p {
+  margin: 0;
   color: #64748b;
+  font-size: 0.85rem;
 }

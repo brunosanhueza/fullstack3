@@ -1,25 +1,32 @@
-:host {
+/* --- CONTENEDOR MAESTRO DEL DASHBOARD --- */
+.dashboard-page-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+<<<<<<< HEAD
   background:
    linear-gradient(135deg, rgba(15,23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%), 
    url('https://www.c3carecarcenter.com/wp-content/uploads/2025/05/Descubre-la-mejor-concesionaria-de-autos-usados-para-ti-1038x576.webp') no-repeat center center;
+=======
+  /* El fondo chulo de los autos */
+  background: linear-gradient(135deg, rgba(15,23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%), url('https://www.c3carecarcenter.com/wp-content/uploads/2025/05/Descubre-la-mejor-concesionaria-de-autos-usados-para-ti-1038x576.webp') no-repeat center center;
+>>>>>>> f56ca93 (varios cambios: se crea el componente de vehiculos, se enlaza hacia la nueva base de datos Aurora and RDS, se crea base de datos de vehiculos, se modifica dashboard, footer, se agrega componente about para posteriormente diseñar un apartado de acerca del proyecto, se crea una ruta hacia /vehiculos en app.routes.ts.)
   background-size: cover;
   color: #f1f5f9;
   font-family: system-ui, -apple-system, sans-serif;
 }
 
+/* --- EL ESPACIO DEL CONTENIDO QUE EMPUJA EL FOOTER --- */
 .dashboard-wrapper {
-  flex: 1 !important;
-  padding: 140px 20px 30px 20px !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  position: relative !important;
+  flex: 1 0 auto;
+  padding: 40px 20px 30px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 .store-header {
   display: flex !important;
   justify-content: space-between !important;
@@ -39,27 +46,28 @@
 }
 
 .brand-container {
+=======
+/* --- HEADER SUPERIOR --- */
+.dashboard-header {
+>>>>>>> f56ca93 (varios cambios: se crea el componente de vehiculos, se enlaza hacia la nueva base de datos Aurora and RDS, se crea base de datos de vehiculos, se modifica dashboard, footer, se agrega componente about para posteriormente diseñar un apartado de acerca del proyecto, se crea una ruta hacia /vehiculos en app.routes.ts.)
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 90px;
+  background-color: #111827;
+  background: rgba(17, 24, 39, 0.9); 
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 15px 30px;
+  margin-bottom: 40px;
+  box-sizing: border-box;
 }
 
-.brand-container h2 { 
-  margin: 0; 
-  font-size: 1.8rem; 
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
+.brand-container h2 { margin: 0; font-size: 1.8rem; font-weight: 700; }
+.subtitle { margin: 5px 0 0 0; font-size: 0.9rem; color: #94a3b8; }
 
-.brand-container h2 span { 
-  color: #3b82f6; 
-}
-
-.subtitle { 
-  margin: 5px 0 0 0; 
-  font-size: 0.9rem; 
-  color: #94a3b8; 
-}
-
+/* --- BOTONES --- */
 .btn-logout {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -76,6 +84,7 @@
   border-color: #3b82f6;
 }
 
+<<<<<<< HEAD
 .store-layout {
   display: grid;
   grid-template-columns: 280px 1fr; 
@@ -161,6 +170,8 @@
   font-weight: 700; 
 }
 
+=======
+>>>>>>> f56ca93 (varios cambios: se crea el componente de vehiculos, se enlaza hacia la nueva base de datos Aurora and RDS, se crea base de datos de vehiculos, se modifica dashboard, footer, se agrega componente about para posteriormente diseñar un apartado de acerca del proyecto, se crea una ruta hacia /vehiculos en app.routes.ts.)
 .btn-details {
   background: transparent;
   border: 1px solid rgba(59, 130, 246, 0.3);
@@ -178,7 +189,39 @@
   color: white; 
 }
 
-@media (max-width: 768px) {
-  .store-layout { grid-template-columns: 1fr; }
-  .filters-sidebar { display: none; }
+/* --- LAYOUT DE LA TIENDA Y CATÁLOGO --- */
+.store-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr; 
+  gap: 30px;
+  align-items: start;
+}
+
+.filters-sidebar h3, .section-title {
+  margin-top: 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 25px;
+}
+
+.product-card {
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-img-placeholder { height: 140px; background: rgba(15, 23, 42, 0.7); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
+.product-info { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.product-info h4 { margin: 0; font-size: 1rem; font-weight: 600; }
+.product-info .price { margin: 0; font-size: 1.15rem; color: #3b82f6; font-weight: 700; }
+
+/* Evita que flexbox aplaste al componente hijo */
+app-footer-component {
+  flex-shrink: 0;
 }
