@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-const DOMINIOS_PERMITIDOS = ['gmail.com','hotmail.com','outlook.com']; //aqui estan los dominios permitidos para el correo
+const DOMINIOS_PERMITIDOS = ['gmail.com','hotmail.com','outlook.com'];
 
 export function validadorDominioCorreo(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -11,7 +11,7 @@ export function validadorDominioCorreo(): ValidatorFn {
 
     if (!emailUser) return null; //Si el espacio del campo de "correo electronico" esta vacio, el "validators.required" hara el trabajo de avisar que falta el correo.
 
-    const arrobaIndex = emailUser.lastIndexOf('@'); //esto se encarga de que el correo cumpla con la adicion del '@'
+    const arrobaIndex = emailUser.lastIndexOf('@');
 
     if (arrobaIndex === -1 || arrobaIndex === emailUser.length - 1) {
       return null;
@@ -41,7 +41,6 @@ export function validadorDominioCorreo(): ValidatorFn {
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-
 export class Login {
   loginForm!: FormGroup;
 
@@ -54,14 +53,14 @@ export class Login {
     });
   }
 
-  onSubmit(): void { //este es el boton que dirige al dashboard, cuando todos los validadores sean correctos
+  onSubmit(): void {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
       this.router.navigate(['/dashboard']);
     }
   }
 
-  ingresoInvitado(): void { //aqui es el funcionamiento de que el boton de "Ingresar como Invitado" funcione.
+  ingresoInvitado(): void {
     console.log('Ingresando como invitado');
     this.router.navigate(['/dashboard']);
   }
