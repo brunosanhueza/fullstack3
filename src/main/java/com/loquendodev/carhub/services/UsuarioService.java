@@ -4,8 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
+import com.loquendodev.carhub.models.dto.UsuarioDto;
 import com.loquendodev.carhub.models.entity.Usuario;
 import com.loquendodev.carhub.repository.UsuarioRepository;
 
@@ -51,6 +55,24 @@ public Optional<Usuario> actualizarUsuario(Integer id, Usuario usuarioActualizad
         usuarioExistente.setPhoneUser(usuarioActualizado.getPhoneUser());
         return usuarioRepository.save(usuarioExistente);
     });
+}
+
+
+@GetMapping("/dto/usuario/{id}")
+public ResponseEntity<UsuarioDto> obtenerUsuarioDto(@PathVariable Integer id) {
+    
+    Usuario usuario = usuarioRepository.findById(id).orElseThrow();
+    
+    UsuarioDto udto = new UsuarioDto();
+    
+    udto.setIdUser(usuario.getIdUser()); 
+    
+    udto.setNameUser(usuario.getNameUser()); 
+    udto.setEmailUser(usuario.getEmailUser());
+    udto.setPhoneUser(usuario.getPhoneUser());
+    udto.setIdUser(usuario.getIdUser());
+    
+    return ResponseEntity.ok(udto);
 }
 
 
