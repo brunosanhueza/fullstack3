@@ -6,10 +6,4 @@ export interface Vehiculo{
   tipoBencinaVehiculo:string;
   tipoTransmisionVehiculo:string;
   tipoPropulsionVehiculo:string;
-
-
-
-
-
-
 };

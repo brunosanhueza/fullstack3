@@ -38,6 +38,7 @@ export class Register implements OnInit {
   }
 
   onSubmit(): void{
+    // confirmaciones en consola, no son necesarios en realidad xd
     // console.log('formulario valido?',this.registerForm.valid);
     // console.log('valores: ', this.registerForm.value);
     if (this.registerForm.valid){

@@ -13,8 +13,11 @@ import { VehiculoService } from '../../services/vehiculo-service';
 //aqui empieza la magia 7u7
 export class VehiculoComponent implements OnInit{
 
+  //se hace el formulario tipo FormGroup
   VehiculoForm!: FormGroup;
   vehiculos: Vehiculo[] = [];
+
+  //variables, aunque no son necesarias son buenas para ver la consola si se registró el auto :D
   msgOK= "";
   msgERR= "";
 

@@ -24,7 +24,12 @@ body {
     background: var(--bg-gradient);
     min-height: 100vh;
     color: var(--text-main);
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+}
+
+
+html, body {
+    overflow: auto;
 }
