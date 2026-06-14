@@ -18,4 +18,9 @@ export class VehiculoService {
     crearVehiculo(vehiculo: Vehiculo): Observable<Vehiculo>{
         return this.http.post<Vehiculo>(environment.urlVehiculos, vehiculo);
     }
+
+    obtenerVehiculosPorMarca(marca: string): Observable<Vehiculo[]> {
+
+        return this.http.get<Vehiculo[]>("${environment.urlVehiculos}/marca/${marca}");
+}
 }

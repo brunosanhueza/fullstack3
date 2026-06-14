@@ -14,32 +14,39 @@
 
     <div class="store-layout">
       <app-filter-data
-      [listaVehiculos]="listarAutosFiltro"
-      (cambioDeFiltro)="aplicarFiltro($event)">
-    </app-filter-data>
-
+        [listaAutomotriz]="listarAutomotrizFiltro"
+        (cambioDeFiltro)="aplicarFiltro($event)">
+      </app-filter-data>
 
       <section class="catalog-section">
-        <h3 class="section-title">¡Catálogo del día de hoy!</h3>
-        
+        <h3 class="section-title">¡Concesionarias disponibles!</h3>
+
         <div class="products-grid">
-          @for (vehiculo of vehiculos; track vehiculo.id) {
+          @for (automotriz of automotrices; track automotriz.idAutomotriz) {
             <div class="product-card">
               <div class="product-img-placeholder">
-                </div>
+                🚗
+              </div>
               <div class="product-info">
-                <h4>{{ vehiculo.marcaVehiculo }}</h4>
-                <p>{{ vehiculo.modeloVehiculo }} · {{ vehiculo.anioVehiculo }}</p>
-                <p>{{ vehiculo.tipoBencinaVehiculo }} · {{ vehiculo.tipoTransmisionVehiculo }}</p>
-                <button class="btn-details">Ver Detalles</button>
+                <h4>{{ automotriz.nombreAutomotriz }}</h4>
+                <p>{{ automotriz.direccionAutomotriz }}</p>
+                <button class="btn-details" (click)="verCatalogo(automotriz.nombreAutomotriz.toString())">
+                  Ver Catálogo
+                </button>
               </div>
             </div>
           }
-        </div> @if (vehiculos.length === 0) {
-          <p class="no-cars">No hay vehículos registrados aún.</p>
+        </div>
+
+        @if (automotrices.length === 0) {
+          <p class="no-cars">No hay automotrices registradas aún.</p>
         }
+
       </section>
 
-    </div> </div> <app-footer-component></app-footer-component>
+    </div>
+  </div>
+
+  <app-footer-component></app-footer-component>
 
 </div>

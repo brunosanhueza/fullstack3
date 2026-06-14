@@ -11,26 +11,6 @@
     </select>
   </div>
 
-  <div class="filter-group">
-    <label for="modelo">Modelo</label>
-    <select id="modelo" [(ngModel)]="modeloSel" (change)="notificarFiltros()">
-      <option value="">Todos los modelos</option>
-      @for (modelo of modelos; track $index) {
-        <option [value]="modelo">{{ modelo }}</option>
-      }
-    </select>
-  </div>
-
-  <div class="filter-group">
-    <label for="combustible">Tipo de Combustible</label>
-    <select id="combustible" [(ngModel)]="tipoBencinaSel" (change)="notificarFiltros()">
-      <option value="">Todos</option>
-      @for (combustible of tipoCombustible; track $index) {
-        <option [value]="combustible">{{ combustible }}</option>
-      }
-    </select>
-  </div>
-
   <button class="btn-clear-filters" (click)="limpiarFiltros()">
     Limpiar Filtros
   </button>

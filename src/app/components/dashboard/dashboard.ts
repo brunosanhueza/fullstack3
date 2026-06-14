@@ -5,7 +5,9 @@ import { FooterComponent } from "../footer-component/footer-component";
 import { VehiculoService } from '../../services/vehiculo-service';
 import { Vehiculo } from '../../models/vehiculo/vehiculo';
 import { FilterData } from "../filter-data/filter-data";
-import { FiltroVehiculos } from '../../models/filter-vehicles/FiltroVehiculos';
+import { FiltroVehiculos } from '../../models/filters/FiltroVehiculos';
+import { automotriz } from '../../models/automotriz/automotriz';
+import { AutomotrizService } from '../../services/automotriz-service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,45 +16,54 @@ import { FiltroVehiculos } from '../../models/filter-vehicles/FiltroVehiculos';
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
-export class DashboardComponent implements OnInit{
-aplicarFiltro(filtros: FiltroVehiculos): void {
-  this.vehiculos = this.listarAutosFiltro.filter(auto =>{
-    const coincideMarca = !filtros.marca || auto.marcaVehiculo.toLowerCase() === filtros.marca.toLowerCase();
-    const coincideModelo = !filtros.modelo || auto.modeloVehiculo.toLowerCase() === filtros.modelo.toLowerCase();
-    const coincideCombustible = !filtros.combustible || auto.tipoBencinaVehiculo.toLowerCase() === filtros.combustible.toLowerCase();
-    
+export class DashboardComponent implements OnInit {
 
-    //solo se va a quedar el auto/vehiculo si cumple las 3 condiciones:
-    return coincideMarca && coincideModelo && coincideCombustible;
-  });
-}
-  //obtener directamente valores de la base de datos para el filtrado de datos
-  //en filter-data.ts
+  // Para el filtro
   listarAutosFiltro: Vehiculo[] = [];
+  vehiculos: Vehiculo[] = [];
+  listarAutomotrizFiltro: automotriz[] = [];
 
-  //para las cards
-  vehiculos: Vehiculo[] = []; 
+  // Para las automotrices
+  automotrices: automotriz[] = [];
 
   constructor(
-
     private router: Router,
-    private vehiculoService: VehiculoService
-  ){}
+    private vehiculoService: VehiculoService,
+    private automotrizService: AutomotrizService
+  ) {}
 
   ngOnInit(): void {
-    this.vehiculoService.obtenerVehiculos().subscribe({
-      next: (data) => {
-        this.vehiculos = data;
-        this.listarAutosFiltro = data;
 
+    // Carga vehículos para el filtro
+    this.automotrizService.obtenerAutomotrices().subscribe({
+      next: (data) => {
+        this.automotrices = data;
+        this.listarAutomotrizFiltro = data;
       },
-      error: (err) => console.error('error al cargar los autos :C ', err)
+      error: (err) => console.error("error al crear la automotriz", err)
     });
   }
+      
 
+
+  aplicarFiltro(marca: string): void{
+    if (!marca){
+      this.automotrices = this.listarAutomotrizFiltro;
+
+    } else {
+      this.automotrices = this.listarAutomotrizFiltro.filter(
+        a => a.nombreAutomotriz.toLowerCase() === marca.toLowerCase()
+      );
+    }
+  }
   
-    logout(): void {
-      localStorage.removeItem('token');
-      this.router.navigate(['/register']);
+
+  verCatalogo(nombreAutomotriz: string): void {
+    this.router.navigate(['/vehiculos'], {queryParams: {marca: nombreAutomotriz}});
+  }
+
+  logout(): void {
+    localStorage.removeItem('token');
+    this.router.navigate(['/register']);
   }
 }

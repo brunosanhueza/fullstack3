@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Vehiculo } from '../../models/vehiculo/vehiculo';
 import { VehiculoService } from '../../services/vehiculo-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-vehiculo-component',
@@ -16,6 +17,7 @@ export class VehiculoComponent implements OnInit{
   //se hace el formulario tipo FormGroup
   VehiculoForm!: FormGroup;
   vehiculos: Vehiculo[] = [];
+  filtroMarca : string = "";
 
   //variables, aunque no son necesarias son buenas para ver la consola si se registró el auto :D
   msgOK= "";
@@ -23,7 +25,8 @@ export class VehiculoComponent implements OnInit{
 
   constructor(
     private fb: FormBuilder,
-    private vehiculoService: VehiculoService
+    private vehiculoService: VehiculoService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -35,14 +38,30 @@ export class VehiculoComponent implements OnInit{
         tipoTransmisionVehiculo: ['', Validators.required],
         tipoPropulsionVehiculo: ['', Validators.required]
       });
+    
+      this.route.queryParams.subscribe(params => {
+        this.filtroMarca = params['marca'] || '';
+        if (this.filtroMarca){
+          this.listarVehiculosPorMarca(this.filtroMarca);
+        } else {        
+          this.listarVehiculos();
 
-      this.listarVehiculos();
+
+        }
+      });
   }
 
   listarVehiculos(): void {
     this.vehiculoService.obtenerVehiculos().subscribe({
       next: (data) => this.vehiculos = data,
       error: (err) => console.error('Error al listar vehiculos: ',err)
+    });
+  }
+
+  listarVehiculosPorMarca(marca: string): void {
+    this.vehiculoService.obtenerVehiculosPorMarca(marca).subscribe({
+      next: (data) => this.vehiculos = data,
+      error: (err) => console.error('Error al filtrar vehículos:', err)
     });
   }
 
