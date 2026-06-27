@@ -1,0 +1,6 @@
+com/loquendodev/carhub/CarhubApplication.class
+com/loquendodev/carhub/models/entity/Usuario.class
+com/loquendodev/carhub/services/UsuarioService.class
+com/loquendodev/carhub/models/dto/UsuarioDto.class
+com/loquendodev/carhub/repository/UsuarioRepository.class
+com/loquendodev/carhub/controllers/usuarioController.class

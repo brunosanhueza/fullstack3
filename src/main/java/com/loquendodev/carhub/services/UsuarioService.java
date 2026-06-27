@@ -75,6 +75,11 @@ public ResponseEntity<UsuarioDto> obtenerUsuarioDto(@PathVariable Integer id) {
     return ResponseEntity.ok(udto);
 }
 
+//eto pal login
+public Optional<Usuario> login(String email, String password) {
+    return usuarioRepository.findByEmailUserAndPasswordUser(email, password);
+}
+
 
 
 

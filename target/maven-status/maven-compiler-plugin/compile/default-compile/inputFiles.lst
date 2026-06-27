@@ -1,0 +1,6 @@
+/home/zackydeb/Escritorio/backend-carhub/src/main/java/com/loquendodev/carhub/CarhubApplication.java
+/home/zackydeb/Escritorio/backend-carhub/src/main/java/com/loquendodev/carhub/controllers/usuarioController.java
+/home/zackydeb/Escritorio/backend-carhub/src/main/java/com/loquendodev/carhub/models/dto/UsuarioDto.java
+/home/zackydeb/Escritorio/backend-carhub/src/main/java/com/loquendodev/carhub/models/entity/Usuario.java
+/home/zackydeb/Escritorio/backend-carhub/src/main/java/com/loquendodev/carhub/repository/UsuarioRepository.java
+/home/zackydeb/Escritorio/backend-carhub/src/main/java/com/loquendodev/carhub/services/UsuarioService.java
