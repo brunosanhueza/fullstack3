@@ -4,6 +4,7 @@ import { DashboardComponent } from './components/dashboard/dashboard';
 import { Login } from './components/login/login';
 import { About } from './components/about/about';
 import { VehiculoComponent } from './components/vehiculo-component/vehiculo-component';
+import { Catalogo } from './components/catalogo/catalogo';
 
 export const routes: Routes = [
     {path: 'register', component: Register },
@@ -11,6 +12,7 @@ export const routes: Routes = [
     {path: 'login', component: Login },
     {path: 'dashboard', component: DashboardComponent },
     {path: 'vehiculos', component: VehiculoComponent},
+    {path: 'catalogo', component: Catalogo},
     {path: '', redirectTo: 'register', pathMatch: 'full' },
     {path: '**', redirectTo: 'register' }
 ];

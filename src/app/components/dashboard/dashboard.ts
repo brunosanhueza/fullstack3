@@ -59,7 +59,7 @@ export class DashboardComponent implements OnInit {
   
 
   verCatalogo(nombreAutomotriz: string): void {
-    this.router.navigate(['/vehiculos'], {queryParams: {marca: nombreAutomotriz}});
+    this.router.navigate(['/catalogo'], {queryParams: {marca: nombreAutomotriz}});
   }
 
   logout(): void {

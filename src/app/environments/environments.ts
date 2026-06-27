@@ -7,9 +7,10 @@
 
  export const environment = {
   production : false, 
-  "urlUsuarios" : "http://localhost:8094/api/v1/usuarios",
-  "urlVehiculos" : "http://localhost:8095/api/v2/vehiculos",
-  "urlAutomotriz": "http://localhost:8097/api/v3/automotriz"
+  //no necesita puerto, proxy inverso actúa
+  "urlUsuarios" : "http://100.57.64.185/api/v1/usuarios",
+  "urlVehiculos" : "http://100.57.64.185/api/v2/vehiculos",
+  "urlAutomotriz": "http://100.57.64.185/api/v3/automotriz"  
 };
 
  

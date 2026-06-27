@@ -1,0 +1,30 @@
+<div class="catalogo-container">
+
+  <div class="catalogo-header">
+    <button class="btn-volver" (click)="volver()">← Volver</button>
+    <h2>Vehículos <span>{{ marcaActual }}</span></h2>
+  </div>
+
+  @if (vehiculos.length === 0) {
+    <p class="no-cars">No hay vehículos registrados para esta marca.</p>
+  }
+
+  <div class="vehiculos-grid">
+    @for (vehiculo of vehiculos; track vehiculo.id) {
+      <div class="vehiculo-card" (click)="verDetalle(vehiculo)">
+        <div class="vehiculo-img-placeholder">
+          🚗
+        </div>
+        <div class="vehiculo-info">
+          <h4>{{ vehiculo.marcaVehiculo }} {{ vehiculo.modeloVehiculo }}</h4>
+          <p><strong>Año:</strong> {{ vehiculo.anioVehiculo }}</p>
+          <p><strong>Combustible:</strong> {{ vehiculo.tipoBencinaVehiculo }}</p>
+          <p><strong>Transmisión:</strong> {{ vehiculo.tipoTransmisionVehiculo }}</p>
+          <p><strong>Propulsión:</strong> {{ vehiculo.tipoPropulsionVehiculo }}</p>
+          <button class="btn-detalle">Ver Detalle</button>
+        </div>
+      </div>
+    }
+  </div>
+
+</div>

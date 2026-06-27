@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { AbstractControl, ValidatorFn, ValidationErrors } from '@angular/forms';
-import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-email-util',
