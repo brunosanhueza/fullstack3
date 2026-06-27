@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class Catalogo implements OnInit{
   vehiculos: Vehiculo[] = [];
-  marcaActual: string= '';
+  marcaActual: string = '';
+  idAutomotrizActual: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,20 +22,24 @@ export class Catalogo implements OnInit{
   ){}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params =>{
+    this.route.queryParams.subscribe(params => {
       this.marcaActual = params['marca'] || '';
-      if(this.marcaActual){
+      this.idAutomotrizActual = params['idAutomotriz'] ? Number(params['idAutomotriz']) : 0;
+      if (this.marcaActual) {
         this.vehiculoService.obtenerVehiculosPorMarca(this.marcaActual).subscribe({
           next: (data) => this.vehiculos = data,
-          error: (err) => console.error("error al cargar los autos: ",err)
+          error: (err) => console.error("error al cargar los autos: ", err)
         });
       }
-    }
-  )};
+    });
+  }
 
-  verDetalle(vehiculo: Vehiculo): void{
-    this.router.navigate(['/detalle', vehiculo.id]);
-}
+  verDetalle(vehiculo: Vehiculo): void {
+    this.router.navigate(['/detalle', vehiculo.idVehiculo], {
+      queryParams: { idAutomotriz: this.idAutomotrizActual, marca: this.marcaActual }
+    });
+  }
+
   volver(): void {
     this.router.navigate(['/dashboard']);
   }

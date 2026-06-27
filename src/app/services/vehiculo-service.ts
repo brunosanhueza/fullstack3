@@ -22,5 +22,13 @@ export class VehiculoService {
     obtenerVehiculosPorMarca(marca: string): Observable<Vehiculo[]> {
 
         return this.http.get<Vehiculo[]>(`${environment.urlVehiculos}/marca/${marca}`);
+
+
+
 }
+
+    obtenerVehiculoPorId(id: number): Observable<Vehiculo> {
+    return this.http.get<Vehiculo>(`${environment.urlVehiculos}/${id}`);
+    
+    }
 }

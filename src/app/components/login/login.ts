@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { UsuarioService } from '../../services/usuario-service';
 
 const DOMINIOS_PERMITIDOS = ['gmail.com','hotmail.com','outlook.com'];
 
@@ -44,7 +45,7 @@ export function validadorDominioCorreo(): ValidatorFn {
 export class Login {
   loginForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private usuarioService: UsuarioService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -55,8 +56,21 @@ export class Login {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
+      const email = this.loginForm.value.emailUser;
+      const password = this.loginForm.value.password;
       console.log(this.loginForm.value);
-      this.router.navigate(['/dashboard']);
+
+      this.usuarioService.loginUsuario(email, password).subscribe({
+        next: (usuario) => {
+          localStorage.setItem('userLogged', JSON.stringify(usuario));
+          this.router.navigate(['/dashboard']);
+
+        },
+        error: (err) => {
+          console.error('credenciales incorrectas...: ', err);
+          alert('el correo o la contraseña o ambos es incorrecto');
+        }
+      })
     }
   }
 

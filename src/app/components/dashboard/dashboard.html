@@ -30,7 +30,7 @@
               <div class="product-info">
                 <h4>{{ automotriz.nombreAutomotriz }}</h4>
                 <p>{{ automotriz.direccionAutomotriz }}</p>
-                <button class="btn-details" (click)="verCatalogo(automotriz.nombreAutomotriz.toString())">
+                <button class="btn-details" (click)="verCatalogo(automotriz.idAutomotriz, automotriz.nombreAutomotriz)">
                   Ver Catálogo
                 </button>
               </div>

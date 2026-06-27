@@ -12,7 +12,7 @@ import { AutomotrizService } from '../../services/automotriz-service';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, FooterComponent, RouterLink, FilterData],
+  imports: [CommonModule, FooterComponent, FilterData],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css'],
 })
@@ -58,12 +58,12 @@ export class DashboardComponent implements OnInit {
   }
   
 
-  verCatalogo(nombreAutomotriz: string): void {
-    this.router.navigate(['/catalogo'], {queryParams: {marca: nombreAutomotriz}});
+  verCatalogo(idAutomotriz: number, nombreAutomotriz: string): void {
+    this.router.navigate(['/catalogo'], {queryParams: {marca: nombreAutomotriz, idAutomotriz: idAutomotriz}});
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.removeItem('userLogged');
     this.router.navigate(['/register']);
   }
 }

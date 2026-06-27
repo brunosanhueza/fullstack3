@@ -13,4 +13,12 @@ export class UsuarioService {
   crearUsuario(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(environment.urlUsuarios, usuario);
   }
+
+
+  loginUsuario(email: string, password: string): Observable<Usuario>{
+    return this.http.post<Usuario>(`${environment.urlUsuarios}/login`,{
+      emailUser: email,
+      passwordUser: password
+    });
+  }
 }

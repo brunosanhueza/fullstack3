@@ -5,6 +5,8 @@ import { Login } from './components/login/login';
 import { About } from './components/about/about';
 import { VehiculoComponent } from './components/vehiculo-component/vehiculo-component';
 import { Catalogo } from './components/catalogo/catalogo';
+import { Detalle } from './components/detalle/detalle';
+import { Compra } from './components/compra/compra';
 
 export const routes: Routes = [
     {path: 'register', component: Register },
@@ -13,6 +15,8 @@ export const routes: Routes = [
     {path: 'dashboard', component: DashboardComponent },
     {path: 'vehiculos', component: VehiculoComponent},
     {path: 'catalogo', component: Catalogo},
+    {path: 'detalle/:id', component: Detalle},
+    {path: 'compra', component: Compra },
     {path: '', redirectTo: 'register', pathMatch: 'full' },
-    {path: '**', redirectTo: 'register' }
+    {path: '**', redirectTo: 'register' },
 ];

@@ -1,0 +1,41 @@
+<div class="detalle-container">
+
+  @if (vehiculo) {
+    <div class="detalle-header">
+      <button class="btn-volver" (click)="volver()">← Volver</button>
+      <h2>{{ vehiculo.marcaVehiculo }} <span>{{ vehiculo.modeloVehiculo }}</span></h2>
+    </div>
+
+    <div class="detalle-content">
+
+      <!-- IZQUIERDA: atributos -->
+      <div class="detalle-info">
+        <h3>Especificaciones</h3>
+        <ul class="specs-list">
+          <li><strong>Marca:</strong> {{ vehiculo.marcaVehiculo }}</li>
+          <li><strong>Modelo:</strong> {{ vehiculo.modeloVehiculo }}</li>
+          <li><strong>Año:</strong> {{ vehiculo.anioVehiculo }}</li>
+          <li><strong>Combustible:</strong> {{ vehiculo.tipoBencinaVehiculo }}</li>
+          <li><strong>Transmisión:</strong> {{ vehiculo.tipoTransmisionVehiculo }}</li>
+          <li><strong>Propulsión:</strong> {{ vehiculo.tipoPropulsionVehiculo }}</li>
+        </ul>
+      </div>
+
+      <!-- DERECHA: imagen y botón comprar -->
+      <div class="detalle-lateral">
+        <div class="detalle-imagen">
+          🚗
+        </div>
+        <button class="btn-comprar" (click)="comprar()">
+          Comprar
+        </button>
+      </div>
+
+    </div>
+  }
+
+  @if (!vehiculo) {
+    <p class="cargando">Cargando vehículo...</p>
+  }
+
+</div>

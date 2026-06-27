@@ -1,8 +1,8 @@
 export interface Vehiculo{
-  id?:number;
+  idVehiculo?:number;
   marcaVehiculo:string;
   modeloVehiculo:string;
-  anioVehiculo:number;
+  anioVehiculo:string;
   tipoBencinaVehiculo:string;
   tipoTransmisionVehiculo:string;
   tipoPropulsionVehiculo:string;
