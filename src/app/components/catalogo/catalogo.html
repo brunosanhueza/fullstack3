@@ -10,7 +10,7 @@
   }
 
   <div class="vehiculos-grid">
-    @for (vehiculo of vehiculos; track vehiculo.id) {
+    @for (vehiculo of vehiculos; track vehiculo.idVehiculo) {
       <div class="vehiculo-card" (click)="verDetalle(vehiculo)">
         <div class="vehiculo-img-placeholder">
           🚗
